@@ -1,9 +1,11 @@
 import { IoLocationOutline } from "react-icons/io5";
 import { CiDollar } from "react-icons/ci";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Job = ({ job }) => {
   const {
+    id,
     logo,
     job_title,
     company_name,
@@ -36,15 +38,16 @@ const Job = ({ job }) => {
           <p>{salary}</p>
         </div>
       </div>
-      <button className="bg-[#7E90FE] py-3 px-5 text-white rounded-md self-start font-semibold text-xl hover:scale-[.98]">
-        View Details
-      </button>
+      <Link to={`/details/${id}`}>
+        <button className="bg-[#7E90FE] py-3 px-5 text-white rounded-md self-start font-semibold text-xl hover:scale-[.98]">
+          View Details
+        </button>
+      </Link>
     </div>
   );
 };
 
-
 Job.propTypes = {
-    job: PropTypes.object
-  };
+  job: PropTypes.object,
+};
 export default Job;

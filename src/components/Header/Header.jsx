@@ -1,14 +1,25 @@
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
-
-    const links = <>
-           <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/jobs">Jobs</NavLink></li>
-            <li><NavLink to="/applied">Applied Jobs</NavLink></li>
-            <li><NavLink to="/statistics">Statistics</NavLink></li>
-            <li><NavLink to="/blogs">Blogs</NavLink></li> 
+  const links = (
+    <>
+      <li className="font-semibold ml-1">
+        <NavLink to="/">Home</NavLink>
+      </li>
+      <li className="font-semibold ml-1">
+        <NavLink to="/jobs">Jobs</NavLink>
+      </li>
+      <li className="font-semibold ml-1">
+        <NavLink to="/applied">Applied Jobs</NavLink>
+      </li>
+      <li className="font-semibold ml-1">
+        <NavLink to="/statistics">Statistics</NavLink>
+      </li>
+      <li className="font-semibold ml-1">
+        <NavLink to="/blogs">Blogs</NavLink>
+      </li>
     </>
+  );
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -33,15 +44,16 @@ const Header = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-            {links}  
+            {links}
           </ul>
         </div>
-        <a className="font-semibold cursor-pointer text-3xl">CareerHub</a>
+
+        <Link to="/" className="font-semibold cursor-pointer text-3xl">
+          CareerHub
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-           {links}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
         <a className="btn bg-[#9873FF] text-white">Star Applying</a>
