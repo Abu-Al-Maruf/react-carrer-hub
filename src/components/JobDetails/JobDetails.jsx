@@ -1,6 +1,9 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { AiOutlineDollar,AiTwotoneCalendar,AiOutlinePhone,AiOutlineMail } from "react-icons/ai";
 import { LuMapPin } from "react-icons/lu";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { saveJobApplication } from "../../utilities/localstorage";
 
 const JobDetails = () => {
   const { id } = useParams();
@@ -16,7 +19,14 @@ const JobDetails = () => {
     educational_requirements,
     salary,
   } = job;
-const {phone, email, address} = job.contact_information
+const {phone, email, address} = job.contact_information;
+
+const handleToast = () => {
+  saveJobApplication(id);
+  toast('You Have Applied Sucessfully!')
+}
+
+
   return (
     <div className="grid grid-cols-4 gap-5  mx-10 my-20">
       <div className="col-span-3 text-[#757575] font-normal flex flex-col gap-4">
@@ -70,6 +80,9 @@ const {phone, email, address} = job.contact_information
             <span className="font-bold text-[#474747]">Address </span> {address}
           </p>
         </div>
+
+        <button onClick={handleToast} className="bg-[#7E90FE] p-3 w-full text-white font-semibold rounded-md hover:scale-[.98] mt-3">Apply Now</button>
+        <ToastContainer />
 
       </div>
     </div>
