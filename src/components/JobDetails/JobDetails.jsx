@@ -4,6 +4,7 @@ import { LuMapPin } from "react-icons/lu";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { saveJobApplication } from "../../utilities/localstorage";
+import { Helmet } from "react-helmet-async";
 
 const JobDetails = () => {
   const { id } = useParams();
@@ -29,6 +30,9 @@ const handleToast = () => {
 
   return (
     <div className="grid grid-cols-4 gap-5  mx-10 my-20">
+      <Helmet>
+        <title>Details</title>
+      </Helmet>
       <div className="col-span-3 text-[#757575] font-normal flex flex-col gap-4">
         <p>
           <span className="font-medium text-base text-black">

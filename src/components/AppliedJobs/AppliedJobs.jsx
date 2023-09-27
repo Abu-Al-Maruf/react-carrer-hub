@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getStoredJobApplication } from "../../utilities/localstorage";
 import AddedJobs from "../AddedJobs/AddedJobs";
+import { Helmet } from "react-helmet-async";
 
 const AppliedJobs = () => {
   const [appliedJobs, setAppliedJobs] = useState([]);
@@ -36,7 +37,12 @@ const AppliedJobs = () => {
 
 
   return (
+   
     <div className="p-10">
+       <Helmet>
+      <title>Applied Jobs</title>
+    </Helmet>
+
       <h1 className="text-2xl text-center my-10">
         Applied Jobs: {appliedJobs.length}
       </h1>
